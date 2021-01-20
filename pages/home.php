@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sakura Panel</title>
     <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700|Arimo:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="assets/home/dist/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/css/style.css">
     <script src="https://unpkg.com/scrollreveal@4.0.0/assets/home/dist/scrollreveal.min.js"></script>
 </head>
 <body class="is-boxed has-animations">
@@ -17,7 +17,7 @@
                     <div class="brand header-brand">
                         <h1 class="m-0">
                             <a href="#">
-                                <img src="assets/home/dist/images/logo.svg" alt="Blue logo">
+                                <img src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/images/logo.svg" alt="Blue logo">
                             </a>
                         </h1>
                     </div>
@@ -83,7 +83,7 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <img src="assets/home/dist/images/feature-icon-01.svg" alt="Feature 01">
+                                        <img src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/images/feature-icon-01.svg" alt="Feature 01">
                                     </div>
                                     <h4 class="feature-title">多功能</h4>
                                     <p class="text-sm">支持多用户、多节点、流量控制、访问控制等功能，可随意定制</p>
@@ -92,7 +92,7 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <img src="assets/home/dist/images/feature-icon-02.svg" alt="Feature 02">
+                                        <img src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/images/feature-icon-02.svg" alt="Feature 02">
                                     </div>
                                     <h4 class="feature-title">更方便</h4>
                                     <p class="text-sm">所有的功能都是为了简洁而设计，没有复杂的操作，使用更简单</p>
@@ -101,7 +101,7 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <img src="assets/home/dist/images/feature-icon-03.svg" alt="Feature 03">
+                                        <img src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/images/feature-icon-03.svg" alt="Feature 03">
                                     </div>
                                     <h4 class="feature-title">更美观</h4>
                                     <p class="text-sm">管理面板基于 AdminLTE 3，美观大气，赏心悦目，颜值丝毫不输</p>
@@ -110,7 +110,7 @@
                             <div class="feature is-revealing">
                                 <div class="feature-inner">
                                     <div class="feature-icon">
-                                        <img src="assets/home/dist/images/feature-icon-04.svg" alt="Feature 04">
+                                        <img src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/images/feature-icon-04.svg" alt="Feature 04">
                                     </div>
                                     <h4 class="feature-title">高性能</h4>
                                     <p class="text-sm">整个系统采用前后端分离设计，后端对接 Frps 独立处理数据</p>
@@ -288,7 +288,7 @@
                 <div class="site-footer-inner">
                     <div class="brand footer-brand">
                         <a href="#">
-                            <img src="assets/home/dist/images/logo.svg" alt="Blue logo">
+                            <img src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/images/logo.svg" alt="Blue logo">
                         </a>
                     </div>
                     <ul class="footer-links list-reset">
@@ -337,6 +337,6 @@
         </footer>
     </div>
 
-    <script src="assets/home/dist/js/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/js/main.min.js"></script>
 </body>
 </html>

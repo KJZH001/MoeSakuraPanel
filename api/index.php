@@ -43,16 +43,16 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 							Header("Content-Type: text/plain");
 							exit($rs);
 						} else {
-							Utils::sendServerNotFound("User or node not found");
+							Utils::sendServerNotFound("Error:User or node not found.用户未找到，请检查您的配置文件中秘钥是否填写正确！");
 						}
 					} else {
-						Utils::sendServerNotFound("User or node not found");
+						Utils::sendServerNotFound("Error:User or node not found.用户未找到，请检查您的配置文件中秘钥是否填写正确！");
 					}
 				} else {
-					Utils::sendServerNotFound("Invalid token");
+					Utils::sendServerNotFound("Error:Invalid token");
 				}
 			} else {
-				Utils::sendServerNotFound("Invalid request");
+				Utils::sendServerNotFound("Error:Invalid request");
 			}
 			break;
 		
