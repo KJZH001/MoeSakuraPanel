@@ -43,16 +43,20 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 							Header("Content-Type: text/plain");
 							exit($rs);
 						} else {
-							Utils::sendServerNotFound("Error:User or node not found.用户未找到，请检查您的配置文件中秘钥是否填写正确！");
+							Utils::sendServerNotFound("Error:User or node not found.
+							[错误]用户未找到，请检查您的配置文件中秘钥是否填写正确！");
 						}
 					} else {
-						Utils::sendServerNotFound("Error:User or node not found.用户未找到，请检查您的配置文件中秘钥是否填写正确！");
+						Utils::sendServerNotFound("Error:User or node not found.
+						[错误]用户未找到，请检查您的配置文件中秘钥是否填写正确！");
 					}
 				} else {
-					Utils::sendServerNotFound("Error:Invalid token");
+					Utils::sendServerNotFound("Error:Invalid token.
+					[错误]非法的token");
 				}
 			} else {
-				Utils::sendServerNotFound("Error:Invalid request");
+				Utils::sendServerNotFound("Error:Invalid request.
+				[错误]请求错误");
 			}
 			break;
 		
@@ -63,15 +67,19 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 					$userToken = Database::escape($_GET['user']);
 					$rs = Database::querySingleLine("tokens", ["token" => $userToken]);
 					if($rs) {
-						Utils::sendLoginSuccessful("Login successful, welcome!");
+						Utils::sendLoginSuccessful("Message:Login successful, welcome!
+						[信息]登录成功，欢迎！");
 					} else {
-						Utils::sendServerForbidden("Login failed");
+						Utils::sendServerForbidden("Error:Login failed.
+						[错误]登录失败");
 					}
 				} else {
-					Utils::sendServerForbidden("Invalid username");
+					Utils::sendServerForbidden("Error:Invalid username.
+					[错误]非法的用户名，请检查配置文件是否有误！");
 				}
 			} else {
-				Utils::sendServerForbidden("Username cannot be empty");
+				Utils::sendServerForbidden("Error:Username cannot be empty.
+				[错误]用户名不能为空");
 			}
 			break;
 		
@@ -96,25 +104,30 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 								]);
 								if($rs) {
 									if($rs['status'] !== "0") {
-										Utils::sendServerForbidden("Proxy disabled");
+										Utils::sendServerForbidden("Error:Proxy disabled.
+										[错误]隧道已被禁用");
 									}
-									Utils::sendCheckSuccessful("Proxy exist");
+									Utils::sendCheckSuccessful("Message:Proxy exist
+									[信息]隧道状态正常");
 								} else {
 									//报错来源
 									//暂时性修复(By晓空)
 									//请注意，这样是不安全的，因为会对xtcp和stcp隧道进行近乎无限制的放行
 									if($proxyType == "stcp" || $proxyType == "xtcp")
 									{
-										Utils::sendCheckSuccessful("Proxy exist");
+										Utils::sendCheckSuccessful("Message:Proxy exist
+										[信息]隧道状态正常");
 										//Utils::sendServerNotFound("Proxy not found");
 									}
 									else
 									{
-										Utils::sendServerNotFound("Proxy not found");
+										Utils::sendServerNotFound("Error:Proxy not found.
+										[错误]隧道未找到");
 									}
 								}
 							} else {
-								Utils::sendServerBadRequest("Invalid request");
+								Utils::sendServerBadRequest("Error:Invalid request
+								[错误]请求错误");
 							}
 						} elseif($proxyType == "http" || $proxyType == "https") {
 							if(isset($_GET['domain']) || isset($_GET['subdomain'])) {
@@ -133,26 +146,33 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 								$rs        = Database::querySingleLine("proxies", $querySQL);
 								if($rs) {
 									if($rs['status'] !== "0") {
-										Utils::sendServerForbidden("Proxy disabled");
+										Utils::sendServerForbidden("Error:Proxy disabled.
+										[错误]隧道已被禁用");
 									}
 									Utils::sendCheckSuccessful("Proxy exist");
 								} else {
-									Utils::sendServerNotFound("Proxy not found");
+									Utils::sendServerNotFound("Error:Proxy not found.
+									[错误]隧道未找到");
 								}
 							} else {
-								Utils::sendServerBadRequest("Invalid request");
+								Utils::sendServerBadRequest("Error:Invalid request.
+								[错误]请求出错");
 							}
 						} else {
-							Utils::sendServerBadRequest("Invalid request");
+							Utils::sendServerBadRequest("Error:Invalid request.
+							[错误]请求出错");
 						}
 					} else {
-						Utils::sendServerNotFound("User not found");
+						Utils::sendServerNotFound("Error:User not found.
+						[错误]用户未找到");
 					}
 				} else {
-					Utils::sendServerBadRequest("Invalid request");
+					Utils::sendServerBadRequest("Error:Invalid request.
+					[错误请求出错]");
 				}
 			} else {
-				Utils::sendServerForbidden("Invalid username");
+				Utils::sendServerForbidden("Error:Invalid username.
+				[错误]非法的用户名");
 			}
 			break;
 		case "getlimit":
@@ -195,22 +215,28 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 									));
 								}
 							} else {
-								Utils::sendServerForbidden("User not exist");
+								Utils::sendServerForbidden("Error:User not exist.
+								[错误]用户未找到");
 							}
 						}
 					} else {
-						Utils::sendServerForbidden("Login failed");
+						Utils::sendServerForbidden("Error:Login failed.
+						[错误]登录失败");
 					}
 				} else {
-					Utils::sendServerForbidden("Invalid username");
+					Utils::sendServerForbidden("Error:Invalid username.
+					[错误]非法的用户名");
 				}
 			} else {
-				Utils::sendServerForbidden("Username cannot be empty");
+				Utils::sendServerForbidden("Error:Username cannot be empty.
+				[错误]用户名不能为空");
 			}
 			break;
 		default:
-			Utils::sendServerNotFound("Undefined action");
+			Utils::sendServerNotFound("Error:Undefined action.
+			[错误]未被定义的行为");
 	}
 } else {
-	Utils::sendServerNotFound("Invalid request");
+	Utils::sendServerNotFound("Error:Invalid request.
+	[错误]请求出错");
 }
