@@ -40,7 +40,7 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
     background-color: #fff;
 }
 </style>
-<link href="assets/configuration/prettify.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/configuration/prettify.css" rel="stylesheet">
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -119,7 +119,7 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
 		</div>
 	</div>
 </div>
-<script type="text/javascript" src="assets/configuration/prettify.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/configuration/prettify.js"></script>
 <script type="text/javascript">
 prettyPrint();
 window.onload = function() {
