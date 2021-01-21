@@ -105,6 +105,7 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 									//报错来源
 									//暂时性修复(By晓空)
 									//请注意，这样是不安全的，因为会对xtcp和stcp隧道进行近乎无限制的放行
+									/*
 									if($proxyType == "stcp" || $proxyType == "xtcp")
 									{
 										Utils::sendCheckSuccessful("Message:Proxy exist[信息]隧道状态正常");
@@ -114,8 +115,26 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 									{
 										Utils::sendServerNotFound("Error:Proxy not found.[错误]隧道未找到");
 									}
-
-								}
+									*/
+									//测试性修复
+									if(isset($sk) && !empty($sk)) 
+										$username = Database::escape($rs['username']);
+										// 这里只对 SK 做限制，可根据自己的需要修改
+										$rs = Database::querySingleLine("proxies", [
+											"username"    => $username,
+											"sk"          => $sk,
+											"proxy_type"  => $proxyType,
+											"node"        => $switchNode
+										]);
+									}
+									if($rs) {
+										if($rs['status'] !== "0") {
+											Utils::sendServerForbidden("Error:Proxy disabled.[错误]隧道已被禁用");
+										}
+										Utils::sendCheckSuccessful("Message:Proxy exist[信息]隧道状态正常");
+									} else {
+										Utils::sendServerNotFound("Error:Proxy not found.[错误]隧道未找到");
+									}
 							} else {
 								Utils::sendServerBadRequest("Error:Invalid request[错误]请求错误");
 							}
