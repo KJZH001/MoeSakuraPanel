@@ -99,7 +99,9 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 										Utils::sendServerForbidden("Error:Proxy disabled.[错误]隧道已被禁用");
 									}
 									Utils::sendCheckSuccessful("Message:Proxy exist[信息]隧道状态正常");
-								} else {
+								} 
+								else 
+								{
 									//报错来源
 									//暂时性修复(By晓空)
 									//请注意，这样是不安全的，因为会对xtcp和stcp隧道进行近乎无限制的放行
@@ -112,6 +114,7 @@ if((isset($_GET['apitoken']) && $_GET['apitoken'] == API_TOKEN) || (isset($_GET[
 									{
 										Utils::sendServerNotFound("Error:Proxy not found.[错误]隧道未找到");
 									}
+
 								}
 							} else {
 								Utils::sendServerBadRequest("Error:Invalid request[错误]请求错误");
