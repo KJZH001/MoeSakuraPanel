@@ -7,7 +7,7 @@
     <title>Sakura Panel</title>
     <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700|Arimo:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/KJZH001/MoeSakuraPanel/assets/home/dist/css/style.css">
-    <script src="https://unpkg.com/scrollreveal@4.0.0/assets/home/dist/scrollreveal.min.js"></script>
+    <script src="https://www.jq22.com/demo/scrollReveal.js-master/dist/scrollReveal.min.js?ver=0.2.0-rc.1"></script>
 </head>
 <body class="is-boxed has-animations">
     <div class="body-wrap boxed-container">
