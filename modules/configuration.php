@@ -151,7 +151,6 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
 							<li>子配置文件是用于在STCP和XTCP的特殊隧道下使用的</li>
 							<li>请在STCP和XTCP隧道的客户机上按照上方的方法储存子配置文件</li>
 							<li>如果您不使用这两种隧道，那么您可以忽略它</li>
-							<li>保持命令提示符窗口打开，不要关闭它，否则映射会中断。</li>
 						</ol></p>
 					</div>
 				</div>
