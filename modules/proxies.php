@@ -225,7 +225,7 @@ $max_proxies = Intval($um->getInfoByUser($_SESSION['user'])['proxies']);
 									<td>{$pi[3]}</td>
 									<td>{$domOrPort}</td>
 									<td>{$nodeName}</td>
-									<td nowrap><a href='javascript:deleteProxy({$pi[0]});'>删除</a> | <a href='javascript:getProxyInfo({$pi[0]});'>详细信息</a></td>
+									<td nowrap><a href='javascript:deleteProxy({$pi[0]});'>删除</a> | <a href='javascript:getProxyInfo({$pi[0]});'>详细信息</a> | <a href='javascript:getProxyInfo({$pi[0]});'>修改配置</a></td>
 									<td><div class='custom-control custom-switch'>
 										<input type='checkbox' class='custom-control-input' {$enable} id='switchProxy_{$pi[0]}' onclick='toggleProxy({$pi[0]});'>
 										<label class='custom-control-label' for='switchProxy_{$pi[0]}'></label>
