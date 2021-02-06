@@ -44,32 +44,6 @@
                 </div>
             </section>
 
-            <!--<section class="clients section">
-                <div class="container">
-                    <div class="clients-inner section-inner has-top-divider">
-                        <div class="container-sm">
-                            <ul class="list-reset mb-0">
-                                <li class="is-revealing">
-                                    <img src="assets/home/dist/images/facebook-logo.svg" alt="Facebook logo">
-                                </li>
-                                <li class="is-revealing">
-                                    <img src="assets/home/dist/images/tinder-logo.svg" alt="Tinder logo">
-                                </li>
-                                <li class="is-revealing">
-                                    <img src="assets/home/dist/images/airbnb-logo.svg" alt="Airbnb logo">
-                                </li>
-                                <li class="is-revealing">
-                                    <img src="assets/home/dist/images/microsoft-logo.svg" alt="Microsoft logo">
-                                </li>
-								<li class="is-revealing">
-									<img src="assets/home/dist/images/hubspot-logo.svg" alt="Hubspot logo">
-								</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>-->
-
 			<section class="features section text-center">
                 <div class="container">
                     <div class="features-inner section-inner has-top-divider">
