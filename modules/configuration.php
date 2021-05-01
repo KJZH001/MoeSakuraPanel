@@ -59,10 +59,12 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
+
+			<!-- 主客户端配置文件卡片 -->
                 <div class="card">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title">配置文件获取</h3>
+                            <h3 class="card-title">主客户端配置文件获取</h3>
                         </div>
                     </div>
                     <div class="card-body">
@@ -86,6 +88,32 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
 						</pre>
 					</div>
 				</div>
+
+				<!-- 子客户端配置文件卡片 -->
+				<div class="card">
+                    <div class="card-header border-0">
+                        <div class="d-flex justify-content-between">
+                            <h3 class="card-title">子客户端配置文件获取</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+						<p><b>选择服务器</b></p>
+						<p><select class="form-control" id="server" <?php echo count($ss) == 0 ? "disabled" : ""; ?>>
+							<?php
+							foreach($ss as $si) {
+								$selected = $sel_server == $si[0] ? "selected" : "";
+								echo "<option value='{$si[0]}' {$selected}>{$si[1]} ({$si[3]})</option>";
+							}
+							if(count($ss) == 0) {
+								echo "<option>没有可用的服务器</option>";
+							}
+							?>
+						</select></p>
+						<p><b>配置文件内容</b></p>
+						<pre class="prettyprint linenums"><?php echo count($ss) !== 0 ? $pm->getUserProxiesConfig($_SESSION['user'], $sel_server) : "当前所有服务器都不可用，请联系管理员。"; ?></pre>
+					</div>
+				</div>
+
 			</div>
 			<div class="col-lg-4">
                 <div class="card">
@@ -116,6 +144,17 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
 							<li>点击 “在此处打开命令提示符” 或 “在此处打开 PowerShell”。</li>
 							<li>输入命令 <code>frpc.exe -c frpc.ini</code> 并按下回车启动。</li>
 							<li>保持命令提示符窗口打开，不要关闭它，否则映射会中断。</li>
+						</ol></p>
+
+						<div class="sub-heading">
+							<span>主和子配置文件的区别</span>
+						</div>
+						<p><ol>
+							<li>在大多数情况下，您只需要使用主配置文件</li>
+							<li>所以您子字配置文件很可能是空的</li>
+							<li>子配置文件是用于在STCP和XTCP的特殊隧道下使用的</li>
+							<li>请在STCP和XTCP隧道的客户机上按照上方的方法储存子配置文件</li>
+							<li>如果您不使用这两种隧道，那么您可以忽略它</li>
 						</ol></p>
 					</div>
 				</div>
