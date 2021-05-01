@@ -79,7 +79,11 @@ $ss = Database::toArray(Database::search("nodes", Array("group" => "{$rs['group'
 							?>
 						</select></p>
 						<p><b>配置文件内容</b></p>
-						<pre class="prettyprint linenums"><?php echo count($ss) !== 0 ? $pm->getUserProxiesConfig($_SESSION['user'], $sel_server) : "当前所有服务器都不可用，请联系管理员。"; ?></pre>
+						<pre class="prettyprint linenums">
+						<?php 
+						echo count($ss) !== 0 ? $pm->getUserProxiesConfig($_SESSION['user'], $sel_server) : "当前所有服务器都不可用，请联系管理员。"; 
+						?>
+						</pre>
 					</div>
 				</div>
 			</div>
