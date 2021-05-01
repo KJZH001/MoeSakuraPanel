@@ -64,7 +64,7 @@ $rs = Database::querySingleLine("users", Array("username" => $_SESSION['user']))
 					<!-- Sidebar user panel (optional) -->
 					<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 						<div class="image">
-							<img src="https://secure.gravatar.com/avatar/<?php echo md5($_SESSION['mail']); ?>?s=64" class="img-circle elevation-2" alt="User Image"></div>
+							<img src="https://gravatar.loli.net/avatar/<?php echo md5($_SESSION['mail']); ?>?s=64" class="img-circle elevation-2" alt="User Image"></div>
 						<div class="info">
 							<a href="#" class="d-block">
 								<?php echo htmlspecialchars($_SESSION[ 'user']); ?></a>
