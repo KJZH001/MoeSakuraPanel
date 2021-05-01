@@ -351,3 +351,81 @@ EOF;
 		return $configuration;
 	}
 }
+
+public function getUserProxiesConfig_xtcpOrStcpUser($user, $node)
+	{
+		global $_config;
+		
+		$nm = new SakuraPanel\NodeManager();
+		$um = new SakuraPanel\UserManager();
+		
+		if(!$um->checkUserExist($user)) {
+			return Array(false, "用户不存在");
+		}
+		
+		if(!$nm->isNodeExist($node)) {
+			return Array(false, "节点不存在");
+		}
+		
+		// 获取节点信息和用户 Token
+		$ns = $nm->getNodeInfo($node);
+		$tk = $um->getUserToken($user);
+		
+		// 客户端基础配置
+		$configuration = <<<EOF
+[common]
+server_addr = {$ns['ip']}
+server_port = {$ns['port']}
+tcp_mux = true
+protocol = tcp
+user = {$tk}
+token = {$ns['token']}
+dns_server = 114.114.114.114
+
+
+EOF;
+		
+		// 获取用户的所有隧道
+		$list = $this->getUserProxiesList($user);
+		
+		foreach($list as $item) {
+			
+			// 如果不是此节点的忽略
+			if(Intval($item[16]) !== Intval($node) || $item[14] !== "0") continue;
+			
+			// 防止出现 Bug
+			$local_ip   = $item[4] == "" ? "127.0.0.1" : $item[4];
+			$local_port = $item[5] == "" ? "80" : $item[5];
+			
+			// 隧道的基本信息
+			$configuration .= <<<EOF
+[{$item[2]}]
+privilege_mode = true
+type = {$item[3]}
+local_ip = {$local_ip}
+local_port = {$local_port}
+
+EOF;
+
+			if($item[3] == "http" || $item[3] == "https") {
+				// HTTP / HTTPS
+				$domain = json_decode($item[8], true);
+				$configuration .= "custom_domains = {$domain[0]}\n";
+				$configuration .= $item[9] == "" ? "" : "locations = {$item[9]}\n";
+				$configuration .= $item[10] == "" ? "" : "host_header_rewrite = {$item[10]}\n";
+				$configuration .= $item[13] == "" ? "" : "header_X-From-Where = {$item[13]}\n";
+			} else {
+				// TCP / UDP / XTCP / STCP
+				$configuration .= "remote_port = {$item[11]}\n";
+				$configuration .= $item[12] == "" ? "" : "sk = {$item[12]}\n";
+			}
+			
+			// 压缩和加密
+			$configuration .= $item[6] == "" ? "" : "use_encryption = {$item[6]}\n";
+			$configuration .= $item[7] == "" ? "" : "use_compression = {$item[7]}\n";
+			$configuration .= "\n";
+		}
+		
+		return $configuration;
+	}
+}
