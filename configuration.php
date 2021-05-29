@@ -10,8 +10,8 @@ $_config = Array(
 	// 数据库相关配置
 	/* 地址 */ 'db_host'           => '127.0.0.1',
 	/* 端口 */ 'db_port'           => 3306,
-	/* 账号 */ 'db_user'           => 'root',
-	/* 密码 */ 'db_pass'           => 'root',
+	/* 账号 */ 'db_user'           => 'edw_sakurafrp',
+	/* 密码 */ 'db_pass'           => '5a3c16e2b8',
 	/* 名称 */ 'db_name'           => 'edw_sakurafrp',
 	/* 编码 */ 'db_code'           => 'utf8mb4_unicode_ci',
 	
