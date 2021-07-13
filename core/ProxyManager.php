@@ -302,7 +302,7 @@ tcp_mux = true
 protocol = tcp
 user = {$tk}
 token = {$ns['token']}
-dns_server = 114.114.114.114
+dns_server = 114.114.114.114\n\n
 EOF;
 		
 		// 获取用户的所有隧道
@@ -319,7 +319,7 @@ EOF;
 			
 			// 隧道的基本信息
 			$configuration .= <<<EOF
-\n\n[{$item[2]}]
+[{$item[2]}]
 privilege_mode = true
 type = {$item[3]}
 local_ip = {$local_ip}
