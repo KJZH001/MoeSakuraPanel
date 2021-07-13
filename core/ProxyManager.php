@@ -319,7 +319,7 @@ EOF;
 			
 			// 隧道的基本信息
 			$configuration .= <<<EOF
-[{$item[2]}]
+\n\n[{$item[2]}]
 privilege_mode = true
 type = {$item[3]}
 local_ip = {$local_ip}
