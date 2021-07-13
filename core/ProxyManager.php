@@ -329,7 +329,8 @@ EOF;
 			if($item[3] == "http" || $item[3] == "https") {
 				// HTTP / HTTPS
 				$domain = json_decode($item[8], true);
-				$configuration .= "custom_domains = {$domain[0]}\n";
+				//修复local_port和custom_domains连一块的问题
+				$configuration .= "\ncustom_domains = {$domain[0]}\n";
 				$configuration .= $item[9] == "" ? "" : "locations = {$item[9]}\n";
 				$configuration .= $item[10] == "" ? "" : "host_header_rewrite = {$item[10]}\n";
 				$configuration .= $item[13] == "" ? "" : "header_X-From-Where = {$item[13]}\n";
