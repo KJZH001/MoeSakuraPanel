@@ -335,7 +335,8 @@ EOF;
 				$configuration .= $item[13] == "" ? "" : "header_X-From-Where = {$item[13]}\n";
 			} else {
 				// TCP / UDP / XTCP / STCP
-				$configuration .= "remote_port = {$item[11]}\n";
+				//修复local_port和remote_port连一块的问题
+				$configuration .= "\nremote_port = {$item[11]}\n";
 				$configuration .= $item[12] == "" ? "" : "sk = {$item[12]}\n";
 			}
 			
